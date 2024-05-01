@@ -8,6 +8,6 @@ def call(String k8sCredentialsID, String imageName) {
 
    // login to k8s Cluster via KubeConfig file
     withCredentials([file(credentialsId: "${k8sCredentialsID}", variable: 'KUBECONFIG_FILE')]) {
-        sh "export KUBECONFIG=${KUBECONFIG_FILE} && kubectl create namespace $BRANCH_NAME && kubectl apply -f deployment.yaml --namespace=$BRANCH_NAME"
+        sh "export KUBECONFIG=${KUBECONFIG_FILE} && kubectl apply -f deployment.yaml --namespace=$BRANCH_NAME"
     }
 }
